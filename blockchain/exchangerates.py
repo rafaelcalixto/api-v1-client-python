@@ -48,7 +48,7 @@ def to_fiat(ccy, value, api_code=None):
 
     :param str ccy: currency code
     :param float value: BTC value to convert
-    :param str api_code: Blockchain.info API codeigger
+    :param str api_code: Blockchain.info API code
     :return: the value in fiat currency
     """
 
