@@ -34,6 +34,6 @@ def handle_response(response):
     # urllib returns different types in Python 2 and 3 (str vs bytes)
     # the replace function extract the comma in float values bigger than 999
     if isinstance(response, str):
-        return response.replace(',','')
+        return response
     else:
-        return response.decode('utf-8').replace(',','')
+        return response.decode('utf-8')
