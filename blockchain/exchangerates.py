@@ -40,7 +40,7 @@ def to_btc(ccy, value, api_code=None):
     res = 'tobtc?currency={0}&value={1}'.format(ccy, value)
     if api_code is not None:
         res += '&api_code=' + api_code
-    return float(util.call_api(res))
+    return float(util.call_api(res).replace(',',''))
 
 
 def to_fiat(ccy, value, api_code=None):
@@ -48,14 +48,14 @@ def to_fiat(ccy, value, api_code=None):
 
     :param str ccy: currency code
     :param float value: BTC value to convert
-    :param str api_code: Blockchain.info API code
+    :param str api_code: Blockchain.info API codeigger
     :return: the value in fiat currency
     """
 
     res = 'frombtc?currency={0}&value={1}'.format(ccy, value*100000000)
     if api_code is not None:
         res += '&api_code=' + api_code
-    return float(util.call_api(res))
+    return float(util.call_api(res).replace(',',''))
 
 
 class Currency:
