@@ -32,7 +32,8 @@ def call_api(resource, data=None, base_url=None):
 
 def handle_response(response):
     # urllib returns different types in Python 2 and 3 (str vs bytes)
+    # the replace function extract the comma in float values bigger than 999
     if isinstance(response, str):
-        return response
+        return response.replace(',','')
     else:
-        return response.decode('utf-8')
+        return response.decode('utf-8').replace(',','')
